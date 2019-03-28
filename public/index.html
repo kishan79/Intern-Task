@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intern Task</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .error-msg {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body onload="fetchData()">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Form</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="name" class="font-weight-bold">Name *</label><br>
+                        <small>Name should be of 3-20 letters</small>
+                        <input type="text" class="form-control" id="name" placeholder="Firstname Lastname"
+                            maxlength="20" required autocomplete="off" onblur="onBlurName(this)"
+                            onkeyup="onValidInputEnableButton(this,'name')">
+                        <div id="nameerror" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="font-weight-bold">Phone </label> <small>(Optional)</small>
+                        <input type="text" class="form-control" id="phone" maxlength="10" onblur="onBlurMobile(this)"
+                            placeholder="Phone No.">
+                        <div id="phoneerror" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email address *</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required
+                            onblur="onBlurEmail(this)" onkeyup="onValidInputEnableButton(this,'email')">
+                        <div id="emailerror" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio" class="font-weight-bold">Bio</label> <small>(Optional)</small>
+                        <textarea class="form-control" id="bio" rows="3"
+                            placeholder="Should not contain more than 60 words" onblur="onBlurBio(this)"></textarea>
+                        <div id="bioerror" class="error-msg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="font-weight-bold">Date of Birth *</label>
+                        <input type="date" class="form-control" id="dob" min='1994-01-01' max='2001-01-01'
+                            placeholder="Date of Birth" required onblur="onBlurdob(this)"
+                            onkeyup="onValidInputEnableButton(this,'dob')">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="font-weight-bold">Gender *</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male"
+                                onclick="onValidInputEnableButton(this,'gender')" required>
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female"
+                                onclick="onValidInputEnableButton(this,'gender')">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitbtn" disabled>Submit</button>
+                    <button type="reset" class="btn btn-primary" id="resetbtn">Reset</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h4>Recent Submitted Data</h4>
+                <div id="informOutput">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
